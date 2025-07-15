@@ -1,0 +1,13 @@
+[1mdiff --git a/index.html b/index.html[m
+[1mindex 81e7269..2f24608 100644[m
+[1m--- a/index.html[m
+[1m+++ b/index.html[m
+[36m@@ -15,7 +15,7 @@[m
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">[m
+   [m
+     <!-- Custom CSS -->[m
+[31m-    <link href="assets/css/style.css?v0.1" rel="stylesheet">[m
+[32m+[m[32m    <link href="css/style.css?v0.1" rel="stylesheet">[m
+ </head>[m
+ [m
+ <body>[m
