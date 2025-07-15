@@ -1,0 +1,56 @@
+/* Fuente base */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #212529;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar personalizado */
+.navbar {
+  background-color: #111 !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #f55 !important;
+}
+
+.nav-link {
+  color: #ddd !important;
+}
+
+.nav-link:hover {
+  color: #f55 !important;
+}
+
+/* Carruseles */
+.carousel-inner img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* Beneficios */
+h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Reseñas */
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #f55;
+  padding-left: 15px;
+  margin: 20px 0;
+  color: #333;
+}
+
+blockquote footer {
+  color: #777;
+}
+
+/* Tienda */
+button.btn-success {
+  background-color: #f55;
+}
