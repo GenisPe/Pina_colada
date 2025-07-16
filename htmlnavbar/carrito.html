@@ -9,92 +9,118 @@
 </head>
 <body>
 
-    <!-- ✅ BARRA DE NAVEGACIÓN -->
-  <!-- Navbar fija oscura con logo e icono de carrito -->
+  <!-- ✅ BARRA DE NAVEGACIÓN -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container">
-
-      <!-- Logo + nombre -->
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="/img/logo.png" alt="Logo SexShop" style="height: 40px; margin-right: 10px;">
         <span class="fw-bold">SexShop</span>
       </a>
 
-      <!-- Botón hamburguesa para móviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <!-- Enlaces de navegación -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="../index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="productos.html">Productos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contacto.html">Contacto</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" data-bs-toggle="dropdown">
               Categorías
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="categoriasDropdown">
+            <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="../categorias/juguetes.html">Juguetes</a></li>
               <li><a class="dropdown-item" href="../categorias/lenceria.html">Lencería</a></li>
               <li><a class="dropdown-item" href="../categorias/bondage.html">Bondage</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="carrito.html">🛒 Carrito</a>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-light ms-2" href="login.html">Iniciar Sesión</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="carrito.html">🛒 Carrito</a></li>
+          <li class="nav-item"><a class="btn btn-outline-light ms-2" href="login.html">Iniciar Sesión</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ✅ CONTENIDO PRINCIPAL DE PRODUCTOS -->
-  <!-- Añadido margen superior para que el navbar fijo no lo tape -->
+  <!-- ✅ CONTENIDO DEL CARRITO -->
   <main class="container" style="padding-top: 100px;">
-    <h2 class="text-center my-4">Nuestros Productos</h2>
-
-
-  <main class="container mt-5">
     <h2 class="text-center mb-4">Tu Carrito</h2>
 
-    <!-- Tabla de productos en el carrito -->
-    <table class="table table-dark table-bordered text-center">
+    <!-- Tabla dinámica -->
+    <table class="table table-dark table-bordered text-center" id="tabla-carrito">
       <thead>
         <tr>
           <th>Producto</th>
           <th>Precio</th>
           <th>Cantidad</th>
           <th>Total</th>
+          <th>Eliminar</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Ejemplo de producto en carrito -->
-        <tr>
-          <td>Vibrador Clásico</td>
-          <td>25€</td>
-          <td>1</td>
-          <td>25€</td>
-        </tr>
+      <tbody id="carrito-body">
+        <!-- Se generará dinámicamente -->
       </tbody>
     </table>
 
     <div class="text-end">
-      <p class="fw-bold">Total: 25€</p>
-      <a href="#" class="btn btn-outline-light">Finalizar compra</a>
+      <p class="fw-bold">Total: <span id="total">0</span>€</p>
+      <button id="finalizarBtn" class="btn btn-outline-light">Finalizar compra</button>
     </div>
   </main>
 
-
+  <!-- ✅ SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ✅ Función para mostrar los productos del carrito
+    function mostrarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const tbody = document.getElementById("carrito-body");
+      const totalSpan = document.getElementById("total");
+      tbody.innerHTML = "";
+      let total = 0;
+
+      carrito.forEach((producto, index) => {
+        const subtotal = producto.precio * producto.cantidad;
+        total += subtotal;
+
+        const fila = document.createElement("tr");
+        fila.innerHTML = `
+          <td>${producto.nombre}</td>
+          <td>${producto.precio}€</td>
+          <td>${producto.cantidad}</td>
+          <td>${subtotal}€</td>
+          <td><button class="btn btn-sm btn-danger" onclick="eliminarProducto(${index})">🗑</button></td>
+        `;
+        tbody.appendChild(fila);
+      });
+
+      totalSpan.textContent = total.toFixed(2);
+    }
+
+    // ✅ Eliminar producto por índice
+    function eliminarProducto(index) {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.splice(index, 1); // elimina el producto
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito(); // recarga la tabla
+    }
+
+    // ✅ Validación de sesión al pulsar "Finalizar compra"
+    document.getElementById("finalizarBtn").addEventListener("click", function () {
+      const sesionIniciada = localStorage.getItem("usuario");
+      if (sesionIniciada) {
+        window.location.href = "pago.html";
+      } else {
+        alert("Debes iniciar sesión para finalizar la compra.");
+        window.location.href = "login.html";
+      }
+    });
+
+    // ✅ Mostrar productos al cargar la página
+    window.onload = mostrarCarrito;
+  </script>
+
 </body>
 </html>
