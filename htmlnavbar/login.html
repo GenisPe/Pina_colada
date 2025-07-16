@@ -17,7 +17,7 @@
     <div class="container">
       <!-- Logo de la marca -->
       <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="/img/logo.png" alt="Logo SexShop" style="height: 40px; margin-right: 10px;">
+        <img src="/img/logo_dorado.png" alt="Logo SexShop" style="height: 40px; margin-right: 10px;">
         <span class="fw-bold">SexShop</span>
       </a>
 
@@ -29,9 +29,11 @@
       <!-- Enlaces del menú -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
+
           <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown">
               Categorías
@@ -42,8 +44,10 @@
               <li><a class="dropdown-item" href="../categorias/bondage.html">Bondage</a></li>
             </ul>
           </li>
+
           <li class="nav-item"><a class="nav-link" href="carrito.html">🛒 Carrito</a></li>
           <li class="nav-item"><a class="btn btn-outline-light ms-2" href="login.html">Iniciar Sesión</a></li>
+
         </ul>
       </div>
     </div>
@@ -51,11 +55,13 @@
 
   <!-- ✅ CONTENIDO PRINCIPAL -->
   <main class="container" style="padding-top: 100px;">
+
     <h2 class="text-center my-4">Iniciar sesión</h2>
 
     <!-- Formulario de inicio de sesión que envía los datos a Flask -->
     <form class="mx-auto mt-4" style="max-width: 400px;" method="POST" action="http://localhost:5000/login">
       <!-- Campo correo -->
+      
       <div class="mb-3">
         <label for="correo" class="form-label">Correo electrónico</label>
         <input type="email" class="form-control" id="correo" name="email" required>
@@ -67,7 +73,11 @@
         <input type="password" class="form-control" id="contrasena" name="password" required>
       </div>
 
+
       <!-- Botón enviar -->
+      
+      <br>
+      
       <button type="submit" class="btn btn-outline-light w-100">Entrar</button>
     </form>
   </main>
