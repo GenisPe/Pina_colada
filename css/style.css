@@ -1,8 +1,10 @@
 /* Fuente base */
 body {
   font-family: 'Roboto', sans-serif;
+  
   background-color: #000000;
   color: #D4AF37;
+
   margin: 0;
   padding: 0;
 }
