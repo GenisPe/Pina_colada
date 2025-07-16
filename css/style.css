@@ -3,7 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   
   background-color: #cd8acd !important;
-  color: #c59898;
+  color: #ffffff;
 
   margin: 0;
   padding: 0;
@@ -14,12 +14,12 @@ body {
 
 .navbar {
   background-color: #550060 !important;
-  box-shadow:#D4AF37;
+  box-shadow:#ffffff;
 }
 
 .navbar-brand {
   font-weight: bold;
-  color: #D4AF37 !important;
+  color: #ffffff !important;
   font-size: 1.4rem;
 }
 
@@ -29,43 +29,43 @@ body {
 }
 
 .nav-link {
-  color: #D4AF37 !important;
+  color: #ffffff !important;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #FFD700 !important; /* Dorado más brillante */
+  color: #ffffff !important; /* Dorado más brillante */
 }
 
 .btn-outline-light {
-  color: #D4AF37 !important;
-  border-color: #D4AF37 !important;
+  color: #ffffff !important;
+  border-color: #ffffff !important;
   transition: all 0.3s ease;
 }
 
 .btn-outline-light:hover {
   color: #000 !important;
-  background-color: #FFD700;
-  border-color: #FFD700 !important;
+  background-color: #ffffff;
+  border-color: #ffffff !important;
 }
 
 /* === DROPDOWN MENÚ === */
 
 .dropdown-menu-dark {
   background-color: #222;
-  border: 1px solid #D4AF37;
+  border: 1px solid #ffffff;
 }
 
 .dropdown-item {
-  color: #D4AF37;
+  color: #ffffff;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-item:hover {
   background-color: #000000;
-  color: #FFD700;
+  color: #ffffff;
 }
 
 /* === CARRUSELES === */
@@ -86,10 +86,10 @@ h2 {
 
 blockquote {
   font-style: italic;
-  border-left: 4px solid #D4AF37;
+  border-left: 4px solid #ffffff;
   padding-left: 15px;
   margin: 20px 0;
-  color: #D4AF37;
+  color: #ffffff;
 }
 
 blockquote footer {
@@ -100,18 +100,18 @@ blockquote footer {
 
 button.btn-success {
   background-color: #000000;
-  color: #D4AF37;
+  color: #ffffff;
 }
 
 
 #titulopagina {
-  color: #D4AF37;
+  color: #ffffff;
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
 }
 
 .form-label {
-  color: #D4AF37;
+  color: #ffffff;
 }
 
