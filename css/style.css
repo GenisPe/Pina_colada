@@ -2,7 +2,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   
-  background-color: #000000;
+  background-color: #000000 !important;
   color: #D4AF37;
 
   margin: 0;
@@ -99,6 +99,18 @@ blockquote footer {
 
 button.btn-success {
   background-color: #000000;
+  color: #D4AF37;
+}
+
+
+#titulopagina {
+  color: #D4AF37;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-label {
   color: #D4AF37;
 }
 
