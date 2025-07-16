@@ -41,9 +41,7 @@
               <li><a class="dropdown-item" href="../categorias/bondage.html">Bondage</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="../htmlnavbar/productos.html">Productos</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="../htmlnavbar/contacto.html">Contacto</a>
           </li>
@@ -93,6 +91,7 @@
         </div>
       </div>
 
+      <!-- Producto 3 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/3.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -104,6 +103,7 @@
         </div>
       </div>
 
+      <!-- Producto 4 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/4.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -115,6 +115,7 @@
         </div>
       </div>
 
+      <!-- Producto 5 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/5.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -126,6 +127,7 @@
         </div>
       </div>
 
+      <!-- Producto 6 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/6.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -137,6 +139,7 @@
         </div>
       </div>
 
+      <!-- Producto 7 --> 
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/7.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -148,6 +151,7 @@
         </div>
       </div>
 
+      <!-- Producto 8 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
           <img src="/img/juguetes/8.jpg" class="card-img-top" alt="Huevo vibrador inalámbrico">
@@ -162,5 +166,36 @@
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Escuchar clicks en todos los botones "Añadir al carrito"
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nombre = btn.getAttribute("data-nombre");
+        const precio = parseFloat(btn.getAttribute("data-precio"));
+        const imagen = btn.getAttribute("data-img");
+
+        // Obtener carrito actual del localStorage o crear uno nuevo
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        // Buscar si el producto ya está
+        const productoExistente = carrito.find(p => p.nombre === nombre);
+
+        if (productoExistente) {
+          productoExistente.cantidad += 1;
+        } else {
+          carrito.push({
+            nombre,
+            precio,
+            imagen,
+            cantidad: 1
+          });
+        }
+
+        // Guardar carrito actualizado
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert(`"${nombre}" se ha añadido al carrito.`);
+      });
+    });
+  </script>
 </body>
 </html>
