@@ -13,7 +13,7 @@ body {
 
 .navbar {
   background-color: #111 !important;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+  box-shadow:#D4AF37;
 }
 
 .navbar-brand {
@@ -101,3 +101,4 @@ button.btn-success {
   background-color: #000000;
   color: #D4AF37;
 }
+
