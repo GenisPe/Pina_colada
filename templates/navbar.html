@@ -1,20 +1,61 @@
-<!-- Barra de navegación principal -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- Barra de navegación principal fija en la parte superior -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
   <div class="container">
-    <!-- Nombre del sitio -->
-    <a class="navbar-brand fw-bold" href="#">SexShop</a>
+    
+    <!-- Logo en lugar del texto 'SexShop' -->
+    <!-- Reemplaza 'logo.png' con la ruta de tu imagen -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="img/logo.png" alt="Logo SexShop" style="height: 40px; margin-right: 10px;">
+      <span class="fw-bold">SexShop</span>
+    </a>
 
     <!-- Botón para desplegar el menú en móviles -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Enlaces del menú -->
+    <!-- Menú de navegación -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Productos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+
+        <!-- Enlace a la página de inicio -->
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        </li>
+
+        <!-- Enlace a la página de productos -->
+        <li class="nav-item">
+          <a class="nav-link" href="productos.html">Productos</a>
+        </li>
+
+        <!-- Enlace a la página de contacto -->
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html">Contacto</a>
+        </li>
+
+        <!-- Menú desplegable para categorías -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown">
+            Categorías
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="categoriasDropdown">
+            <li><a class="dropdown-item" href="categorias/juguetes.html">Juguetes</a></li>
+            <li><a class="dropdown-item" href="categorias/lenceria.html">Lencería</a></li>
+            <li><a class="dropdown-item" href="categorias/bondage.html">Bondage</a></li>
+          </ul>
+        </li>
+
+        <!-- Enlace al carrito de compras -->
+        <li class="nav-item">
+          <a class="nav-link" href="carrito.html">
+            🛒 Carrito
+          </a>
+        </li>
+
+        <!-- Botón de inicio de sesión -->
+        <li class="nav-item">
+          <a class="btn btn-outline-light ms-2" href="login.html">Iniciar Sesión</a>
+        </li>
       </ul>
     </div>
   </div>
