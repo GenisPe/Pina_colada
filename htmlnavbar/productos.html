@@ -12,35 +12,66 @@
 </head>
 <body>
 
-  <!-- ✅ NAVBAR del sitio -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- ✅ BARRA DE NAVEGACIÓN -->
+  <!-- Navbar fija oscura con logo e icono de carrito -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">SexShop</a>
+
+      <!-- Logo + nombre -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="/img/logo.png" alt="Logo SexShop" style="height: 40px; margin-right: 10px;">
+        <span class="fw-bold">SexShop</span>
+      </a>
+
+      <!-- Botón hamburguesa para móviles -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Enlaces de navegación -->
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link active" href="productos.html">Productos</a></li>
-          <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown">
+              Categorías
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="categoriasDropdown">
+              <li><a class="dropdown-item" href="../categorias/juguetes.html">Juguetes</a></li>
+              <li><a class="dropdown-item" href="../categorias/lenceria.html">Lencería</a></li>
+              <li><a class="dropdown-item" href="../categorias/bondage.html">Bondage</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="carrito.html">🛒 Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light ms-2" href="login.html">Iniciar Sesión</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- ✅ CONTENIDO PRINCIPAL -->
-  <main class="container mt-5">
+  <!-- ✅ CONTENIDO PRINCIPAL DE PRODUCTOS -->
+  <!-- Añadido margen superior para que el navbar fijo no lo tape -->
+  <main class="container" style="padding-top: 100px;">
     <h2 class="text-center my-4">Nuestros Productos</h2>
 
     <!-- 🛍️ Galería de productos -->
     <div class="row">
-      
       <!-- Producto 1 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
-          <img src="assets/img/5.jpg" class="card-img-top" alt="Vibrador Clásico" />
+          <img src="/img/5.jpg" class="card-img-top" alt="Vibrador Clásico" />
           <div class="card-body">
             <h5 class="card-title">Vibrador Clásico</h5>
             <p class="card-text">Diseño elegante, potente y silencioso.</p>
@@ -52,7 +83,7 @@
       <!-- Producto 2 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
-          <img src="assets/img/6.jpg" class="card-img-top" alt="Vibrador Moderno" />
+          <img src="/img/6.jpg" class="card-img-top" alt="Vibrador Moderno" />
           <div class="card-body">
             <h5 class="card-title">Vibrador Moderno</h5>
             <p class="card-text">Diseño ergonómico, carga USB y múltiples modos.</p>
@@ -64,7 +95,7 @@
       <!-- Producto 3 -->
       <div class="col-md-4 mb-4">
         <div class="card h-100 text-light bg-dark border-pink">
-          <img src="assets/img/14.jpg" class="card-img-top" alt="Lubricante Neutro" />
+          <img src="/img/14.jpg" class="card-img-top" alt="Lubricante Neutro" />
           <div class="card-body">
             <h5 class="card-title">Vibrador Con Mando</h5>
             <p class="card-text">Diseño elegante, carga USB y silencioso.</p>
@@ -72,7 +103,6 @@
           </div>
         </div>
       </div>
-      
     </div>
   </main>
 
