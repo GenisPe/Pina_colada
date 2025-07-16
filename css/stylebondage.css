@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'CloisterBlack';
+    src: url('/css/CloisterBlack.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fuente base */
+body {
+  font-family:  'CloisterBlack', serif !important;
+  
+  background-color: #000000 !important;
+  color: #ff0000;
+
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/* === NAVBAR PERSONALIZADO NEGRO Y DORADO === */
+
+.navbar {
+  background-color: #000000 !important;
+  box-shadow:#ff0000;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ff0000 !important;
+  font-size: 1.4rem;
+}
+
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-link {
+  color: #ff0000 !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #710303 !important; /* Rojo mas oscuro*/
+}
+
+.btn-outline-light {
+  color: #ff0000 !important;
+  border-color: #ff0000 !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  color: #ffffff !important;
+  background-color: #300000 !important;
+  border-color: #ff0000 !important;
+}
+
+/* === DROPDOWN MENÚ === */
+
+.dropdown-menu-dark {
+  background-color: #222;
+  border: 1px solid #ff0000;
+}
+
+.dropdown-item {
+  color: #ff0000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #000000;
+  color: #ff0000;
+}
+
+/* === CARRUSELES === */
+
+.carousel-inner img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+/* === SECCIÓN DE BENEFICIOS === */
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* === RESEÑAS === */
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid #ff0000;
+  padding-left: 15px;
+  margin: 20px 0;
+  color: #ff0000;
+}
+
+blockquote footer {
+  color: #000000;
+}
+
+/* === BOTONES DE TIENDA === */
+
+button.btn-success {
+  background-color: #000000;
+  color: #ff0000;
+}
+
+
+
+#titulopagina {
+  color: #ff0000;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.form-label {
+  color: #ff0000;
+}
+
