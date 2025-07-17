@@ -5,7 +5,7 @@ import os
 import smtplib
 from dotenv import load_dotenv
 
-# Cargar variables del .env
+# Cargar variables del entorno
 load_dotenv()
 
 app = Flask(__name__)
@@ -21,7 +21,7 @@ class Usuario(db.Model):
     password = db.Column(db.String(100), nullable=False)
     verificado = db.Column(db.Boolean, default=False)
 
-# Ruta para mostrar y procesar el formulario de registro
+# Ruta de registro
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -35,22 +35,27 @@ def register():
         db.session.add(nuevo_usuario)
         db.session.commit()
 
+        # Generar token
         token = s.dumps(email, salt='email-confirm')
         link = f'http://localhost:5000/confirm/{token}'
 
+        # Enviar correo
         try:
             with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
                 smtp.starttls()
                 smtp.login(os.getenv('MAIL_USERNAME'), os.getenv('MAIL_PASSWORD'))
-                mensaje = f'Subject: Verifica tu cuenta\n\nHaz clic en el siguiente enlace para verificar tu cuenta:\n{link}'
+                subject = 'Verifica tu cuenta'
+                body = f'Haz clic en este enlace para verificar tu cuenta:\n{link}'
+                mensaje = f'Subject: {subject}\n\n{body}'
                 smtp.sendmail(os.getenv('MAIL_USERNAME'), email, mensaje)
         except Exception as e:
             return f"Error al enviar correo: {e}"
 
-        return "Registro exitoso. Revisa tu correo electrónico para confirmar tu cuenta."
+        return "Registro exitoso. Revisa tu correo para confirmar tu cuenta."
 
     return render_template("registro.html")
 
+# Ruta de verificación
 @app.route('/confirm/<token>')
 def confirm_email(token):
     try:
@@ -62,8 +67,10 @@ def confirm_email(token):
             return render_template_string("<h2>¡Correo verificado!</h2><p>Ya puedes iniciar sesión.</p>")
     except:
         return render_template_string("<h2>Enlace inválido o expirado.</h2>")
+    
     return "Algo salió mal."
 
+# Crear DB si no existe
 with app.app_context():
     db.create_all()
 
