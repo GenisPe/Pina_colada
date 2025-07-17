@@ -12,11 +12,6 @@ body {
 
 /* === NAVBAR PERSONALIZADO NEGRO Y DORADO === */
 
-.navbar {
-  background-color: #550060 !important;
-  box-shadow:#ffffff;
-}
-
 .navbar-brand {
   font-weight: bold;
   color: #ffffff !important;
