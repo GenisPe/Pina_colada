@@ -101,7 +101,7 @@
               data-precio="137.23"
               data-img="/img/juguetes/1.jpg">
               Añadir al carrito
-              </button>
+            </button>
             </div>
           </div>
         </div>
@@ -360,5 +360,36 @@
       
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Escuchar clicks en todos los botones "Añadir al carrito"
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nombre = btn.getAttribute("data-nombre");
+        const precio = parseFloat(btn.getAttribute("data-precio"));
+        const imagen = btn.getAttribute("data-img");
+
+        // Obtener carrito actual del localStorage o crear uno nuevo
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        // Buscar si el producto ya está
+        const productoExistente = carrito.find(p => p.nombre === nombre);
+
+        if (productoExistente) {
+          productoExistente.cantidad += 1;
+        } else {
+          carrito.push({
+            nombre,
+            precio,
+            imagen,
+            cantidad: 1
+          });
+        }
+
+        // Guardar carrito actualizado
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert(`"${nombre}" se ha añadido al carrito.`);
+      });
+    });
+  </script>
 </body>
 </html>
